@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+    <title>Result</title>
+    <style>
+        h1
+        {
+            color: {{color}} ;
+        }
+        .btn1
+        {
+            margin: 20px;
+            padding: 20px 50px 20px 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+
+     
+
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+          <h1 class="display-4">{{note}}</h1>
+          <p class="lead">predicted probability [{{prob}} , {{prob1}}]</p>
+          <p class="lead">Probability that you are suffering from diabetes is {{prob1}}</p>
+        </div>
+      </div>
+
+      <a class="btn btn-dark btn1" href="/" role="button" target="_blank">Go Back</a>
+    
+
+
+    
+</body>
+</html>

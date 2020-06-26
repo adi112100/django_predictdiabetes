@@ -1,0 +1,206 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css"
+        integrity="sha384-9aIt2nRpC12Uk9gS9baDl411NQApFmC26EwAOH8WgZl5MYYxFfc+NcPb1dKGj7Sk" crossorigin="anonymous">
+
+    <title>Canvas2</title>
+</head>
+
+<style>
+    .jumbotron {
+        background-color: rgb(17, 17, 17);
+        color: white;
+    }
+
+    .canvas_box {
+
+        background-color: white;
+        box-shadow: 0px 0px 20px 7px rgb(99, 99, 99);
+        margin-bottom: 40px;
+        margin: 40px;
+        margin-right: 20px;
+        margin-left: 20px;
+        padding: 20px;
+    }
+
+    body {
+        
+        background: url("{% static 'bg.jpg' %}") no-repeat 50%;
+    }
+
+    .footer {
+        background-color: black;
+        height: 200px;
+    }
+
+    .footer p {
+        padding: 20px;
+        margin: 20px;
+        text-align: center;
+        font-size: large;
+        color: white;
+
+    }
+
+    .h1 {
+        font-size: 40px;
+        color: white;
+        text-align: center;
+        background-color: rgba(0, 0, 0, 0.822);
+        margin:auto;
+
+    }
+    .btn1
+    {
+        padding: 10px 30px 10px 30px
+    }
+    .formm
+    {
+        margin: 20px;
+    }
+
+    .formm1
+    {
+        padding: 10px 30px 10px 30px;
+        
+        
+    }
+
+    .card1
+    {
+        width: 20rem;
+    }
+
+    @media only screen and (min-width: 1000px)
+    {
+        .card1
+        {
+            width: 29rem;
+        }
+    }
+
+ 
+</style>
+
+<body>
+    <div class="jumbotron jumbotron-fluid">
+        <div class="container">
+            <h1 class="display-4">Diabetes Prediction</h1>
+            <p class="lead">This is a Diabetes Prediction Model trained using RandomForest Classifier with test accuracy
+                of 76%.</p>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <div class="col-md canvas_box p-2">
+                <h1 class = "h1">Fill the form to check if you are diabetic or not!!</h1>
+                <form method="post" class="formm" action="result/">
+                    {% csrf_token %}  
+                   
+                    <div class="row formm">
+                        <div class="col">
+                          <h5>Pregnancies</h5>
+                          <input type="number" for="xyz" name="pregnant" class="form-control" placeholder="Number of times pregnant" required>
+                        </div>
+                    </div>
+                    <div class="row formm">
+                        <div class="col">
+                          <h5>Glucose</h5>
+                          <input type="number" for="xyz" name="glucose" class="form-control" placeholder="Plasma glucose concentration a 2 hours in an oral glucose tolerance test" required>
+                        </div>
+                    </div>
+                    <div class="row formm">
+                        <div class="col">
+                          <h5>Blood Pressure</h5>
+                          <input type="number" for="xyz" name="bloodpressure" class="form-control" placeholder="Diastolic blood pressure (mm Hg)" required>
+                        </div>
+                    </div>
+                    <div class="row formm">
+                        <div class="col">
+                          <h5>Skin Thickness</h5>
+                          <input type="number" for="xyz" name="skin" class="form-control" placeholder="Triceps skin fold thickness (mm)" required>
+                        </div>
+                    </div>
+                    <div class="row formm">
+                        <div class="col">
+                          <h5>Insulin</h5>
+                          <input type="number" for="xyz" name="insulin" class="form-control" placeholder="2-Hour serum insulin (mu U/ml)" required>
+                        </div>
+                    </div>
+                    <div class="row formm">
+                        <div class="col">
+                          <h5>BMI</h5>
+                          <input type="number"  step="any" for="xyz" name="bmi" class="form-control" placeholder="Body mass index (weight in kg/(height in m)^2)" required>
+                        </div>
+                    </div>
+                    <div class="row formm">
+                        <div class="col">
+                          <h5>Diabetes Pedigree</h5>
+                          <input type="number"  step="any" for="xyz" name="pedigree" class="form-control" placeholder="Diabetes pedigree function" required>
+                        </div>
+                    </div>
+                    <div class="row formm">
+                        <div class="col">
+                          <h5>Age</h5>
+                          <input type="number" for="xyz" name="age" class="form-control" placeholder="Enter your age" required>
+                        </div>
+                    </div>
+                    <div class="row formm">
+                        <div class="col ">
+                            <button type="submit" class="btn btn-dark formm1">Predict</button>
+                        </div>
+                    </div>
+                    
+                    
+
+                </form>
+            </div>
+            <div class="col-md align-self-center">
+                <div class="card card1">
+                    <img src="{% static 'cardbg.jpg' %}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title">Diabetes Prediction</h5>
+                        <p class="card-text">
+                        <h3>Context</h3><br>
+                        <br>This dataset is originally from the National Institute of Diabetes and Digestive and Kidney
+                        Diseases. The objective of the dataset is to diagnostically predict whether or not a patient has
+                        diabetes, based on certain diagnostic measurements included in the dataset. Several constraints
+                        were placed on the selection of these instances from a larger database. In particular, all
+                        patients here are females at least 21 years old of Pima Indian heritage. <br>
+                        <br> <h1>Click here to see EDA </h1>
+                        <a class="btn btn-dark btn1" href="eda/" role="button" target="_blank">Click</a>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <p> - by aditya morankar </p>
+
+    </footer>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>
